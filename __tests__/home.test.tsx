@@ -1,4 +1,4 @@
-import { PlatformBlocksProvider } from '@platform-blocks/ui';
+import { PlocksProvider } from '@plocks/ui';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import renderer, { act } from 'react-test-renderer';
 
@@ -15,15 +15,15 @@ describe('HomeScreen', () => {
     await act(async () => {
       tree = renderer.create(
         <SafeAreaProvider initialMetrics={TEST_SAFE_AREA_METRICS}>
-          <PlatformBlocksProvider>
+          <PlocksProvider>
             <HomeScreen />
-          </PlatformBlocksProvider>
+          </PlocksProvider>
         </SafeAreaProvider>
       );
     });
 
     const json = JSON.stringify(tree!.toJSON());
-    expect(json).toContain('Hello, Platform Blocks');
+    expect(json).toContain('Hello, plocks');
 
     await act(async () => {
       tree!.unmount();

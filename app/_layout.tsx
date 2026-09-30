@@ -7,15 +7,14 @@ import {
   ThemeProvider as NavigationThemeProvider,
 } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {
-  PlatformBlocksProvider,
+  PlocksProvider,
   useTheme,
   useThemeMode,
   type ColorSchemeMode,
-} from '@platform-blocks/ui';
+} from '@plocks/ui';
 
-const THEME_STORAGE_KEY = 'platform-blocks-theme-mode';
+const THEME_STORAGE_KEY = 'plocks-theme-mode';
 
 /**
  * Restores the saved light/dark/auto choice on launch and persists changes.
@@ -66,7 +65,7 @@ function ThemeModePersistence() {
 }
 
 /**
- * Feeds the Platform Blocks theme into the router's navigation theming so
+ * Feeds the plocks theme into the router's navigation theming so
  * navigator-owned surfaces (scene background, headers, tab bar defaults)
  * follow the same light/dark scheme as the components.
  */
@@ -94,16 +93,14 @@ function NavigationThemeBridge({ children }: { children: ReactNode }) {
 
 export default function RootLayout() {
   return (
-    <SafeAreaProvider>
-      <PlatformBlocksProvider themeModeConfig={{ initialMode: 'auto' }}>
-        <ThemeModePersistence />
-        <StatusBar style="auto" />
-        <NavigationThemeBridge>
-          <Stack screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="(tabs)" />
-          </Stack>
-        </NavigationThemeBridge>
-      </PlatformBlocksProvider>
-    </SafeAreaProvider>
+    <PlocksProvider themeModeConfig={{ initialMode: 'auto' }}>
+      <ThemeModePersistence />
+      <StatusBar style="auto" />
+      <NavigationThemeBridge>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" />
+        </Stack>
+      </NavigationThemeBridge>
+    </PlocksProvider>
   );
 }

@@ -1,6 +1,6 @@
 import { ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Button, Card, Chip, Column, Flex, Text, Title } from '@platform-blocks/ui';
+import { Button, Card, Chip, Column, Flex, Text, Title } from '@plocks/ui';
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
@@ -8,8 +8,8 @@ export default function HomeScreen() {
   return (
     <ScrollView contentContainerStyle={{ padding: 20, paddingTop: insets.top + 20, gap: 16 }}>
       <Column gap="sm">
-        <Title order={1}>Hello, Platform Blocks 👋</Title>
-        <Text colorVariant="secondary">
+        <Title order={1}>Hello, plocks 👋</Title>
+        <Text c="secondary">
           This screen lives in app/(tabs)/index.tsx. Edit it to start building — the provider,
           navigation, dark mode, and testing are already wired up.
         </Text>
@@ -26,8 +26,8 @@ export default function HomeScreen() {
             <Chip size="sm" variant="surface">ESLint</Chip>
             <Chip size="sm" variant="surface">TypeScript</Chip>
           </Flex>
-          <Text colorVariant="secondary">
-            Every Platform Blocks component, hook, and theme token is ready to use. Try the
+          <Text c="secondary">
+            Every plocks component, hook, and theme token is ready to use. Try the
             Settings tab to switch between light, dark, and auto themes — the choice persists
             across launches.
           </Text>
@@ -35,7 +35,7 @@ export default function HomeScreen() {
             title="Browse the components"
             variant="filled"
             onPress={() => {
-              console.log('https://platform-blocks.com/components');
+              console.log('https://plocks.dev/components');
             }}
           />
         </Column>

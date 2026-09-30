@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Icon, useTheme } from '@platform-blocks/ui';
+import { Icon, useTheme } from '@plocks/ui';
 
 export default function TabsLayout() {
   const theme = useTheme();

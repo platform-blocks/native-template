@@ -1,6 +1,6 @@
 import { ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Card, Column, SegmentedControl, Text, Title, useThemeMode } from '@platform-blocks/ui';
+import { Card, Column, SegmentedControl, Text, Title, useThemeMode } from '@plocks/ui';
 
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
@@ -13,7 +13,7 @@ export default function SettingsScreen() {
       <Card variant="elevated" p="lg">
         <Column gap="md">
           <Title order={3}>Appearance</Title>
-          <Text colorVariant="secondary">
+          <Text c="secondary">
             Auto follows the OS setting. Your choice is saved and applied before the app renders
             on the next launch.
           </Text>
