@@ -1,3 +1,4 @@
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useEffect, useMemo, useRef, type ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
@@ -93,14 +94,16 @@ function NavigationThemeBridge({ children }: { children: ReactNode }) {
 
 export default function RootLayout() {
   return (
-    <PlocksProvider themeModeConfig={{ initialMode: 'auto' }}>
-      <ThemeModePersistence />
-      <StatusBar style="auto" />
-      <NavigationThemeBridge>
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(tabs)" />
-        </Stack>
-      </NavigationThemeBridge>
-    </PlocksProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <PlocksProvider themeModeConfig={{ initialMode: 'auto' }}>
+        <ThemeModePersistence />
+        <StatusBar style="auto" />
+        <NavigationThemeBridge>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(tabs)" />
+          </Stack>
+        </NavigationThemeBridge>
+      </PlocksProvider>
+    </GestureHandlerRootView>
   );
 }
